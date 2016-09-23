@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--Write a JavaScript program which prompts the user for a number and console.logs that number as a string with dashes (-) between each two odd digits. For example if the user types 0253697 the output should be “025-369-7”. -->
+	<script>
+    //want to check each number, see if they are odd, if they are odd, add a "-" between
+    //know:
+    	// want loop, array, know to check for odd numbers: number % 2 === 1, if the number is odd --> add a dash between the two odd numbers
+    	//we have a string --> array
+    	var input = prompt ("Enter a number");
+
+    	var arrnum = input.split("");
+
+    	var newnum = [];
+
+    	for (var i=0; i<arrnum.length; i++) {
+    		if (arrnum[i]%2===1 && (arrnum[i-1]%2===1)) {
+    			newnum.push("-" + arrnum[i]);
+    		} else {
+    			newnum.push(arrnum[i]);
+    		}
+    	}
+    	console.log(newnum.join(""));
+
+//each of the user inputs are now individual indexes in an array. 
+//read and read and read on stack overflow
+
+//Charlotte walked me through this and explained why it works the way that it does. She did not give me the answer but helped me figure out what the answer was going to be. 
+</script>
+</body>
+</html>
