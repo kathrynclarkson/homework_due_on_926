@@ -5,12 +5,41 @@
 	<title>Document</title>
 </head>
 <body>
+
 	<script>
-	var input = prompt "Come up with a number. Do not enter into the computer"	
+	// Have the user come up with a number between 1 and 100 (inclusive), but not enter it into the computer. Have the computer guess numbers in that same range, and ask the user if that is the number (e.g. “Is 40 your number?”). You can use prompt text (propmt("is 40 your number")) to accomplish this. If the number is too high, have the user enter “H”. If the number is too low, have the user enter “L”. If the computer guessed the number, have the user enter “Y”, and start a new game. Can you write an efficient algorithm so that the computer will find your number in the minimum number of guesses?
+
+//prompt the user to come up with a number between 1 and 100 but do not enter it. Have the computer "guess" a number between 1 and 100. The user will enter H if to high and L if too low and Y if correct. 
+
+var input = alert("Come up with a number in your head between 1 and 100. Do not enter it into the computer")
+var userAnswer = "";
+var range = [0,100];
+var computerGuess = (range[1] - range[0]) / 2;
+while (userAnswer !== "Y") {
+	// round to the nearest whole number
+	computerGuess = parseInt(computerGuess, 10)
+	userAnswer = prompt("Is the answer " + computerGuess + "? If yes, enter Y. If it is too high, enter H. If it is too low, enter L.")
+	if (userAnswer === "H") {
+		// [0,100]
+		// 50 is higher than our number
+		// [0, 49]
+		var newHigh = computerGuess - 1;
+		range[1] = newHigh;
+	} else if (userAnswer === "Y") {
+		alert("Congrats!") 
+	} else if (userAnswer === "L") {
+		var newLow = computerGuess + 1;
+		range[0] = newLow;
+	} else {
+		prompt("Enter a valid letter. (L, H or Y)")
+	}
+	computerGuess = range[0] + (range[1] - range[0]) / 2;
+	alert('range = [' + range[0] + ", " + range[1] + "]");
+// range = [0, 24]
+	
+}
 
 
-
-
-	</script>
+</script>
 </body>
 </html>
